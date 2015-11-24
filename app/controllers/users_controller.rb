@@ -18,20 +18,37 @@ class UsersController < ApplicationController
   end
 
   def login
-    
+      return redirect_to(login_path(from: referer)) unless pa    rams[:from].present?
+      @user = User.new
+      render 'login', layout: 'register'
   end
 
   def login_confirm
+      @user = User.find_by username: params[:user][:username]
+      if @user && @user.check_password(params[:user][:password])
+          to_login @user
+          @user.update_attribute :last_login_time, DateTime.now
+          redirect_to (params[:from].present? ? params[:from] : ro    ot_path)
+      else
+          flash[:error] = '用户名或密码错误'
+          render 'login', layout: 'register'
+      end
+  rescue
+      flash[:error] = '用户名或密码错误'
+      render 'login', layout: 'register'
     
   end
 
   def logout
+      session[:user_id] = nil
+      redirect_to referer
     
   end
 
   protected
 
   def to_login(user)
+      session[:user_id] = user.id
    
   end
 end
