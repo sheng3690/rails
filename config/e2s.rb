@@ -1,0 +1,10 @@
+defaults: &defaults
+  blog:
+    aritcle_page_size: 10
+    comments_page_size: 10
+
+development:
+  <<: *defaults
+
+production:
+  <<: *defaults
