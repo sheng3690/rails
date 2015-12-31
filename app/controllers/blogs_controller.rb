@@ -49,7 +49,20 @@ class BlogsController < ApplicationController
   end
 
   def update_password
-    
+    @user = User.find @current_user.id
+    if @user.check_password(params[:user][:old_password])
+      @user.password = params[:user][:password] || ''
+      @user.password_confirmation = params[:user][:password_confirmation] || ''
+      if @user.save
+        flash[:success] = '修改密码成功，请重新登录'
+        redirect_to login_path
+      else
+        render 'change_password'
+      end
+    else
+      flash.now[:error] = '原密码错误'
+      render 'change_password'
+    end
   end
 
   def upload_img
