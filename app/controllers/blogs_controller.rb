@@ -1,6 +1,7 @@
 #encoding: utf-8
 class BlogsController < ApplicationController
   before_filter :require_login, only: [:set, :set_userinfo, :upload_img, :set_blog, :update_blog, :change_password, :update_password]
+
   def index
     @articles = Article.order('updated_at desc').limit(10)
     @new_comments = ArticleComment.order('updated_at desc').limit(10)
@@ -37,7 +38,19 @@ class BlogsController < ApplicationController
   end
 
   def update_blog
-    
+    param_hash = params.require(:blog).permit(:name, :blog_title, :email, :description)
+    @blog = BlogInfo.first
+    if @blog.present?
+      result = @blog.update_attributes param_hash
+    else
+      @blog = BlogInfo.new param_hash
+      result = @blog.save
+    end
+    if result
+      redirect_to set_blogs_path
+    else
+      render 'set_blog'
+    end
   end
 
   def about
