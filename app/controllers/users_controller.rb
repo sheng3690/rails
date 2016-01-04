@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def register_confirm
-      @user = User.new params.require(:user).permit(:username,:em    ail,:password,:password_confirmation)
+      @user = User.new params.require(:user).permit(:username,:email,:password,:password_confirmation)
       if @user.save
           to_login @user
           redirect_to root_path
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def login
-      return redirect_to(login_path(from: referer)) unless pa    rams[:from].present?
+      return redirect_to(login_path(from: referer)) unless params[:from].present?
       @user = User.new
       render 'login', layout: 'register'
   end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       if @user && @user.check_password(params[:user][:password])
           to_login @user
           @user.update_attribute :last_login_time, DateTime.now
-          redirect_to (params[:from].present? ? params[:from] : ro    ot_path)
+          redirect_to (params[:from].present? ? params[:from] : root_path)
       else
           flash[:error] = '用户名或密码错误'
           render 'login', layout: 'register'
