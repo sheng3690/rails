@@ -1,0 +1,31 @@
+require 'test_helper'
+require 'articles_controller'
+
+class ArtilesControllerTest < ActionController::TestCase
+  setup do
+    @controller = AritilesController.new
+    @aritile = Aritile.new
+    @aritile.title = 'title1'
+    @aritile.tags = 'tags1'
+    @aritile.source = 'source1'
+    @aritile.content = 'content1'
+    @aritile.save
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:articles)
+  end
+
+  test "should show article" do
+    get :show, id: @aritile.id
+    assert_response :success
+  end
+
+  test "should create aritile" do
+    post :create,:aritile =>{:title=>'title1', :tags=>'tags1', :source=>'source', :content=>'content1'}
+    assert_not_nil session[:aritile_id]
+    assert_redirected_to article_path(@article)
+  end
+end
