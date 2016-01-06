@@ -12,7 +12,7 @@ GIT
     markdown-toolbar (1.0.1)
 
 GEM
-  remote: https://rubygems.org/
+  remote: https://ruby.taobao.org/
   specs:
     actionmailer (4.2.3)
       actionpack (= 4.2.3)
@@ -227,4 +227,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
