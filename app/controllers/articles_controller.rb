@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
- 
+  before_filter :check_current_user_is_admin, only: [:new, :create, :edit, :update]
+  before_filter :article, only: [:show, :edit, :update, :destroy, :star]
+  
   def index
     res = Article
     order = 'updated_at desc'

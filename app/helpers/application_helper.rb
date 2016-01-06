@@ -22,6 +22,6 @@ module ApplicationHelper
 
   def blog_title
     blog = BlogInfo.first
-    blog.present? ? blog.blog_title : 'Blog'
+    blog.present? ? blog.blog_title : 'E2S'
   end
 end

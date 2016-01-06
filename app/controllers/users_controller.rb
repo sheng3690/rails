@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       else
           render 'register', layout: 'register'
       end
-    
   end
 
   def login
