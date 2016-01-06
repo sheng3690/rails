@@ -12,6 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
+ *= require _font-awesome
+ *= require _font-awesome-ie7.min
+ *= require markdown-toolbar
  */
 .body_content {
     margin-top: 60px;
