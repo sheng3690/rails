@@ -84,16 +84,28 @@ class ArticlesController < ApplicationController
   end
 
   def star
-    
+    if current_user_can_star? @article
+      @result = {status: false, message: '', star_count: 0}
+      star = @article.article_stars.new user_id: @current_user.id
+      if star.save
+        @result[:star_count] = (@article.star_count || 0) + 1
+        @result[:status] = true
+      else
+        @result[:message] = '称赞失败'
+      end
+      respond_to do |format|
+        format.js
+      end
+    end
   end
 
   protected
 
   def check_current_user_is_admin
-   
+    redirect_to root_path unless (@current_user && @current_user.admin)
   end
 
   def article
-    
+    @article = Article.find params[:id]
   end
 end

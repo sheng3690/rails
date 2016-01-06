@@ -3,8 +3,8 @@ require 'articles_controller'
 
 class ArticlesControllerTest < ActionController::TestCase
   setup do
-    @controller = AriticlesController.new
-    @ariticle = Ariticle.new
+    @controller = ArticlesController.new
+    @ariticle = Article.new
     @ariticle.title = 'title1'
     @ariticle.tags = 'tags1'
     @ariticle.source = 'source1'
@@ -19,14 +19,14 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "should show article" do
-    get :show, id: @ariticle.id
+    get :show, id: @article.id
     assert_response :success
   end
 
-  test "should create ariticle" do
-    post :create,:ariticle =>{:title=>'title1', :tags=>'tags1', :source=>'source', :content=>'content1'}
-    assert_not_nil session[:ariticle_id]
-    assert_redirected_to article_path(@ariticle)
+  test "should create article" do
+    post :create,:article =>{:title=>'title1', :tags=>'tags1', :source=>'source', :content=>'content1'}
+    assert_not_nil session[:article_id]
+    assert_redirected_to article_path(@article)
   end
 
   test "should destroy article" do
@@ -38,7 +38,7 @@ class ArticlesControllerTest < ActionController::TestCase
   end
 
   test "destroy_wrong" do
-    post :destroy, :ariticle=>{:username=>'title1'}
+    post :destroy, :article=>{:username=>'title1'}
     assert_response :success
     assert_equal '删除失败', flash[:error]
   end
