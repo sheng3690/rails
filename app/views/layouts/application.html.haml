@@ -24,12 +24,10 @@
             %ul.nav.navbar-nav.navbar-right
               - if is_logined?
                 %li.dropdown
-                  .navbar-header.navbar-avatar
-                    = avatar @current_user
-                  = link_to '#', class: 'dropdown-toggle pull-right', "data-toggle"=>"dropdown" do
+                  = link_to '#',id:'drop', class: 'dropdown-toggle pull-right',"data-toggle"=>"dropdown", "role"=>"button", "aria-haspopup"=>"true" do
                     = @current_user.nickname
                     %span.caret
-                  %ul.dropdown-menu{role: 'menu'}
+                  %ul.dropdown-menu{role: 'menu' ,"aria-labelledby"=>"drop"}
                     %li
                       = link_to '#' do
                         = gravatar_image_tag @current_user.email, size: 100, alt: @current_user.nickname, gravatar: {default: 'https://secure.gravatar.com/avatar/08f077ea061585744ee080824f5a8e65.png?r=PG&d=identicon&s=64'}
@@ -40,6 +38,8 @@
                         = link_to '写博客', new_article_path
                     %li
                       = link_to '退出', logout_path
+                  .navbar-header.navbar-avatar
+                    = avatar @current_user
               - else
                 %ul.navbar-button.navbar-right
                   %li
@@ -59,4 +59,8 @@
     $('#search_button').click(function(){
       $('#search_form').submit();
     });
+    $('#drop').click(function(){
+        //$('.dropdown-toggle').dropdown('toggle')
+    });
+    $('.dropdown-toggle').dropdown();
   });
