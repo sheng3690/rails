@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  
+
   root "blogs#index"
 
   resources :blogs, only:[:index] do
@@ -89,6 +89,12 @@ Rails.application.routes.draw do
       get 'login'
       post 'login_confirm'
       get 'logout'
+      get 'send_active_mail'
+      get 'activation'
+      get 'forget_password'
+      post 'forget_password_confirm'
+      get 'change_pw'
+      post 'change_pw_confirm'
     end
   end
 
