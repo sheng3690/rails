@@ -1,0 +1,4 @@
+Feature:Add number of seeing the article
+  As a user
+  So that I can see the number of seeing the article 
+  I want to count the number of seeing the artcile

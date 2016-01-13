@@ -1,0 +1,4 @@
+Feature:Search for a article by title
+  As a user
+  So that I can search for a article by title
+  I want to search for a article by title in database

@@ -1,0 +1,4 @@
+Feature:Modify password of the user
+  As a user
+  So that I can modify my password at any time
+  I want to modify my password

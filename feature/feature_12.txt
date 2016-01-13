@@ -1,0 +1,4 @@
+Feature:sort articles by comment
+  As a user
+  So that I can see the article sorting by comment
+  I want to sort articles by comment

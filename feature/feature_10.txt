@@ -1,0 +1,4 @@
+Feature:Sort articles by star
+  As a user 
+  So that I can see the articles by star
+  I want to sort the articles by star
