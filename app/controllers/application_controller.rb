@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user, :is_logined?, :current_user_is_admin?, :get_categories_options, :current_user_can_star?,
+  helper_method :current_user, :is_logined?, :current_user_is_admin?, :current_user_is_author?, :get_categories_options, :current_user_can_star?,
                 :current_user_can_edit_comment?, :markdown_parser
 
   rescue_from Exception, with: :error_500 unless Rails.env.development?
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
 
   def current_user_is_admin?
     @current_user && @current_user.admin
+  end
+
+  def current_user_is_author?(article)
+      @current_user.id == article.user_id
   end
 
   def current_user_can_star?(article)
