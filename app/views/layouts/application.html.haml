@@ -18,9 +18,9 @@
           .collspse.navbar-collapse.site-header
             %ul.nav.navbar-nav
               %li{class: "#{'active' if params[:controller] == 'articles' && params[:action] == 'index'}"}
-                = link_to '文章列表', articles_path
+                = link_to '经验列表', articles_path
               %li
-                = link_to '关于博主', about_blogs_path
+                = link_to '关于', about_blogs_path
             %ul.nav.navbar-nav.navbar-right
               - if is_logined?
                 %li.dropdown
@@ -34,7 +34,7 @@
                     %li
                       = link_to '设置', set_blogs_path
                     %li
-                      = link_to '写博客', new_article_path
+                      = link_to '写经验', new_article_path
                     %li
                       = link_to '退出', logout_path
                   .navbar-header.navbar-avatar

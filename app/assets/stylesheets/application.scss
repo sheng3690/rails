@@ -18,6 +18,10 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+body{
+    background:rgba(102, 255, 255, 0.1) none repeat scroll 0 0 !important;
+}
+
 .body_content {
     margin-top: 60px;
 }

@@ -14,6 +14,6 @@
       = link_to '个人信息设置', set_blogs_path
     - if current_user_is_admin?
       %li{role: 'presentation', class: "#{'active' if params[:action] == 'set_blog'}"}
-        = link_to '博客设置', set_blog_blogs_path
+        = link_to '空间设置', set_blog_blogs_path
     %li{role: 'presentation'}
       = link_to '修改密码', change_password_blogs_path
