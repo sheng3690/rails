@@ -1,0 +1,4 @@
+Feature:Add a comment to articles
+  As a user
+  So that I can comment a article
+  I want to add a comment to articles

@@ -1,0 +1,4 @@
+Feature:Add a blogger_info to E2S
+  As a blogger
+  So that I can share my info with others
+  I want to add my info to blogger

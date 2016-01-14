@@ -1,0 +1,4 @@
+Feature:User can sort the articles by times
+  As a User
+  So that I can see the articles by times
+  I want to sort the articles by time

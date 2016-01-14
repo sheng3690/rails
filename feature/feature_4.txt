@@ -1,0 +1,4 @@
+Feature:Modify the password of blogger
+  As a blogger
+  So that I can modify my password
+  I want to modify my password to E2S

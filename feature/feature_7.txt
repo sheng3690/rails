@@ -1,0 +1,4 @@
+Feature:Star the good articles
+  As a user
+  So that I can star a article which I like 
+  I want to star the good articles

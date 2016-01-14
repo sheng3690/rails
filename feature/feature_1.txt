@@ -1,0 +1,4 @@
+Feature:Add a article to E2S
+  As a blogger
+  So that I can share a article with others
+  I want to add a article to E2S

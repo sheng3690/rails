@@ -1,0 +1,4 @@
+Feature:Edit the articles
+  As a blogger
+  So that I can edit my articles at any time
+  I want to edit my articles

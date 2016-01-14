@@ -1,0 +1,4 @@
+Feature:Display the latest comment
+  As a user
+  So that I can see the latest comment
+  I want to display the latest comment

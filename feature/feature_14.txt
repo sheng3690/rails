@@ -1,0 +1,4 @@
+Feature:Display the classification of articles
+  As a user
+  So that I can see the classification of articles
+  I want to display the classification of articles
