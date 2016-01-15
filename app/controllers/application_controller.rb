@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_is_author?(article)
-      @current_user.id == article.user_id
+    @current_user && @current_user.id == article.user_id
   end
 
   def current_user_can_star?(article)
