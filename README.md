@@ -58,7 +58,7 @@
 
     以下列出部分配置，完整配置见 deployment/nginx/nginx.conf文件
 
-    upstream blog {
+    upstream e2s {
         server unix:/home/the/e2s/tmp/sockets/e2s.socket;
     }
     server {
