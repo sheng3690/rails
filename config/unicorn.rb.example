@@ -1,5 +1,5 @@
 # path to app dir
-app_dir = "/home/root/e2s/"
+app_dir = "/home/the/e2s/"
 worker_processes 2
 working_directory app_dir
 
